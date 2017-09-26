@@ -12,6 +12,7 @@ public class Entry {
     public Entry(Day day, String note) {
         this.day = day;
         this.note = note;
+        this.duration = random.nextInt(100);
     }
 
     public Day getDay() {
@@ -35,7 +36,7 @@ public class Entry {
         Random random = new Random();
 
 
-        Entry entry = new Entry(Day.MONDAY,"Today I went to play sports");
+        Entry entry = new Entry(Day.MONDAY,"Today I went to play sports", random.nextInt(100)+1);
         entries.add(entry);
 
         entry = new Entry(Day.TUESDAY,"Lunch was a salad today... was still hungry");
