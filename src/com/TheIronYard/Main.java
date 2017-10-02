@@ -37,9 +37,9 @@ public class Main {
         System.out.println("\nStream, filter, forEach:");
         entries.stream()
                 .filter(e -> e.getDay() == Day.TUESDAY)
-                .map(e -> e.getNote())
-                .collect(Collectors.toList());
-        System.out.println(entries);
+                .forEach(System.out::println);
+
+
     }
 
     public static void countTueWedThur(List<Entry> entries) {
@@ -67,7 +67,7 @@ public class Main {
         List<Entry> weekends = new ArrayList<>();
 
         for (Entry entry : entries) {
-            if (entry.getDay() == Day.SATURDAY || entry.getDay() == Day.SUNDAY) {
+            if (entry.getDay().ordinal() > 4) {
                 weekends.add(entry);
             }
         }
@@ -114,7 +114,6 @@ public class Main {
         entries.stream()
                 .filter(e -> e.getDuration() > 10)
                 .forEach(System.out::println);
-        System.out.println();
     }
 
     public static void findMaxDuration(List<Entry> entries) {
